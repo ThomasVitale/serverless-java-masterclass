@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    function:
+      definition: uppercase|sentence
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: functions,health
+  endpoint:
+    health:
+      probes:
+        enabled: true

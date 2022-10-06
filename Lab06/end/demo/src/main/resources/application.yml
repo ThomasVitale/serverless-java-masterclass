@@ -1,0 +1,26 @@
+spring:
+  cloud:
+    function:
+      definition: uppercase|sentence
+    stream:
+      bindings:
+        uppercasesentence-in-0:
+          destination: instruments
+          group: ${spring.application.name}
+        uppercasesentence-out-0:
+          destination: skills
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bindings,functions,health
+  endpoint:
+    health:
+      show-details: always
+      show-components: always
+      probes:
+        enabled: true
+  health:
+    binders:
+      enabled: true

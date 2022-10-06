@@ -1,0 +1,19 @@
+spring:
+  cloud:
+    function:
+      definition: uppercase|sentence
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bindings,functions,health
+  endpoint:
+    health:
+      show-details: always
+      show-components: always
+      probes:
+        enabled: true
+  health:
+    binders:
+      enabled: true
