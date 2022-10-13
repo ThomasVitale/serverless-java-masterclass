@@ -1,7 +1,6 @@
 plugins {
-	id 'org.springframework.boot' version '2.7.5-SNAPSHOT'
+	id 'org.springframework.boot' version '3.0.0-M5'
 	id 'io.spring.dependency-management' version '1.0.14.RELEASE'
-	id 'org.springframework.experimental.aot' version '0.12.1'
 	id 'java'
 }
 
@@ -12,12 +11,10 @@ sourceCompatibility = '17'
 repositories {
 	mavenCentral()
 	maven { url 'https://repo.spring.io/milestone' }
-	maven { url 'https://repo.spring.io/release' }
-	maven { url 'https://repo.spring.io/snapshot' }
 }
 
 ext {
-  	set('springCloudVersion', "2021.0.4")
+  	set('springCloudVersion', "2022.0.0-M5")
 }
 
 dependencies {
@@ -40,9 +37,11 @@ tasks.named('test') {
 }
 
 bootBuildImage {
-	// This builder is only for ARM64 systems. On AMD64, delete the line.
-	// For more info: https://github.com/thomasvitale/paketo-arm64
-	builder = "ghcr.io/thomasvitale/java-builder-arm64"
+	if (System.getProperty( "os.arch" ).toLowerCase().startsWith('aarch')) {
+		// This builder is only for ARM64 systems.
+		// For more info: https://github.com/thomasvitale/paketo-arm64
+		builder = "ghcr.io/thomasvitale/java-builder-arm64"
+	}
 	imageName = "ghcr.io/thomasvitale/web-function"
 	environment = ['BP_NATIVE_IMAGE': 'true']
 }

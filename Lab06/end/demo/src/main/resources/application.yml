@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: web-app
   cloud:
     function:
       definition: uppercase|sentence

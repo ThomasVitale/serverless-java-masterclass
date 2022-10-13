@@ -1,5 +1,5 @@
 plugins {
-	id 'org.springframework.boot' version '2.7.5-SNAPSHOT'
+	id 'org.springframework.boot' version '3.0.0-M5'
 	id 'io.spring.dependency-management' version '1.0.14.RELEASE'
 	id 'java'
 }
@@ -11,11 +11,10 @@ sourceCompatibility = '17'
 repositories {
 	mavenCentral()
 	maven { url 'https://repo.spring.io/milestone' }
-	maven { url 'https://repo.spring.io/snapshot' }
 }
 
 ext {
-  	set('springCloudVersion', "2021.0.4")
+  	set('springCloudVersion', "2022.0.0-M5")
 }
 
 dependencies {
