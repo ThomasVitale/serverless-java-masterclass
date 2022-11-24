@@ -22,13 +22,13 @@
 You can install GraalVM using [sdkman](https://sdkman.io).
 
 ```shell
-sdk install java 22.2.r17-grl
+sdk install java 22.3.r17-grl
 ```
 
 Configure your current terminal shell to use GraalVM as the Java distribution.
 
 ```shell
-sdk use java 22.2.r17-grl
+sdk use java 22.3.r17-grl
 ```
 
 Next, install the native-image component from GraalVM.
